@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <link rel="stylesheet" href="/marqueeLayout.css">
+    <link rel="stylesheet" href="marqueeLayout.css">
 
 </head>
 <body>
@@ -183,8 +183,37 @@
                  <!-- Custom Marquee generation part-->
 
                 <div class="column is-6">
+                        <label class="label mt-3">Marquee Text</label>
+                        <textarea class="textarea" placeholder="Enter marquee text" rows="3" id="marqueeText" oninput="changeMarqueeText(this.value)"></textarea>
+                        <label class="label mt-3">Text Style / Weight</label>
+                        <label class="checkbox">
+                          <input type="checkbox" id="textStyle" value="italic" onchange="selectTextStyle()">
+                          Italic 
+                        </label>
+                        <label class="checkbox ml-5">
+                          <input type="checkbox" id="textWeight" value="bold" onchange="selectTextWeight()">
+                          Bold
+                        </label>
+                        <label class="label mt-3">Text Size</label>
+                        <div class="select is-info">
+                          <select id="selectTextSize" onchange="changeTextSize(this.value)">
+                            <option value="14px">14px</option>
+                            <option value="16px">16px</option>
+                            <option value="18px">18px</option>
+                            <option value="20px">20px</option>
+                            <option value="22px">22px</option>
+                            <option value="24px">24px</option>
+                          </select>
+                        </div>
                         <label class="label mt-3">Scroll Speed</label>
                         <input class="slider" min=1 max=100  type="range" value="10" step=10 oninput="changeScrollSpeed(this.value)">
+                        <label class="label mt-3">Marquee Behaviour</label>
+                        <div class="select is-info">
+                          <select id="selectMarqueeBehaviour" onchange="changeMarqueeBehaviour(this.value)">
+                            <option value="scroll">Scroll</option>
+                            <option value="alternate">Bounce</option>
+                          </select>
+                        </div>
                         <label class="label mt-3">Direction</label>
                         <div class="buttons has-addons">
                             <button class="button is-success" value="left" onclick="changeDirection(this.value)">Left</button>
@@ -215,12 +244,12 @@
                         <label class="label mt-4">Preview</label>
                         <div class="card has-background-white-ter">
                             <div class="card-content">
-                                <marquee width="580px" bgColor="#000000" height="60px" id="marqueeText" direction="right" scrollamount="10" behavior="scroll" style="color: white;">Marquee text...</marquee>
+                                <marquee width="580px" bgColor="#000000" height="60px" id="marqueePreview" direction="right" scrollamount="10" behavior="scroll" style="color: white; font-size: 14px;">Marquee text...</marquee>
                             </div>
                           </div>
                     </div>
                 </div>
 
-<script src="/forMarqueeGeneration.js"></script>
+<script src="forMarqueeGeneration.js"></script>
 </body>
 </html>
